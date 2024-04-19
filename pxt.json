@@ -1,0 +1,21 @@
+{
+    "name": "WIFI Camera",
+    "version": "0.0.0",
+    "description": "Microbit WIFI Camera for Yahboom",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "README.md",
+        "_locales/zh-cn/WIFI Camera-strings.json",
+        "_locales/zh-tw/WIFI Camera-strings.json",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}

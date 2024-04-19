@@ -1,0 +1,60 @@
+
+{
+  "WIFI_Camera|block":"wifi摄像头",
+  "{id:category}WIFI_Camera":"WIFI_Camera",
+
+  "{id:group}SET SerialPort": "串口配置",
+  "{id:group}SET WIFI MODE": "设置wifi模式",
+  "{id:group}SET STA WIFI": "配置连接wifi",
+  "{id:group}SET AP WIFI": "配置自发热点",
+  "{id:group}GET WIFI IP": "获取Wifi的ip地址",
+  "{id:group}GET WIFI Version": "获取wifi固件版本",
+  "{id:group}GET Data": "获取透传的数据",
+  "{id:group}Car control": "小车指令",
+  "{id:group}Servo":"舵机",
+  
+  "WIFI_Camera.initialization|block":"串口初始化|发送引脚 %TX|接收引脚 %RX|波特率 %buadrate",
+  "WIFI_Camera.setRXbuffSize|block":"设置串口接收缓冲器的大小|大小长度 %size",
+  "WIFI_Camera.setTXbuffSize|block":"设置串口发送缓冲器的大小|大小长度 %size",
+
+  "WIFI_Camera.setWifiMode|block":"设置wifi的工作模式 %mode",
+
+  "WIFI_Camera.setSTASSID|block":"设置要连接的wifi名称 %SSID",
+  "WIFI_Camera.setSTAPD|block":"设置要连接的wifi密码 %Password",
+
+  "WIFI_Camera.setAPSSID|block":"设置自发热点的wifi名称 %SSID",
+  "WIFI_Camera.setAPPD|block":"设置自发热点的wifi密码 %Password",
+
+  "WIFI_Camera.GET_AP_IP|block":"获取热点模式的ip地址",
+  "WIFI_Camera.GET_STA_IP|block":"获取连接wifi模式的ip地址",
+  
+  "WIFI_Camera.GET_Version|block":"获取固件版本号",
+  "WIFI_Camera.GET_controlData|block":"获取透传的数据",
+
+  "WIFI_Camera.CarControl|block":"小车控制 %value",
+
+  "WIFI_Camera.Servo_Control|block":"舵机控制 %value",
+  "WIFI_Camera.Servodirection|block":"解析舵机方向 %strData",
+
+  "WIFI_Camera.Get_vflip_Servoangle|block":"获取垂直方向舵机的角度",
+  "WIFI_Camera.Get_mirror_Servoangle|block":"获取水平方向舵机的角度",
+
+  
+  "WIFI_Camera.MODE_selcet.APOnly|block":"仅自发热点模式",
+  "WIFI_Camera.MODE_selcet.STAOnly|block":"仅连接wifi模式",
+  
+  "WIFI_Camera.Cmd_Data.forword|block":"前进指令",
+  "WIFI_Camera.Cmd_Data.back|block":"后退指令",
+  "WIFI_Camera.Cmd_Data.left|block":"左转指令",
+  "WIFI_Camera.Cmd_Data.right|block":"右转指令",
+  "WIFI_Camera.Cmd_Data.leftspin|block":"左旋指令",
+  "WIFI_Camera.Cmd_Data.rightspin|block":"右旋指令",
+  "WIFI_Camera.Cmd_Data.stop|block":"停止指令",
+
+  "WIFI_Camera.Sever_Data.sevro_vflip|block":"舵机垂直方向",
+  "WIFI_Camera.Sever_Data.sevro_mirror|block":"舵机水平方向",
+  "WIFI_Camera.Sever_Data.sevro_NONE|block":"无舵机方向"
+
+}
+
+
