@@ -1,4 +1,4 @@
-//% blockId=WIFI_Camera block="WIFI Camera"
+//% blockId=WIFI_Camera block="WIFI_Camera"
 //%color="#228B22" weight=25 icon="\uf06e"
 namespace WIFI_Camera {
 
