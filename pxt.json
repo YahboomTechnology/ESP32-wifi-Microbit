@@ -1,6 +1,6 @@
 {
     "name": "WIFI Camera",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Microbit WIFI Camera for Yahboom",
     "license": "MIT",
     "dependencies": {

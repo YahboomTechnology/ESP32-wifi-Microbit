@@ -12,6 +12,7 @@
   "{id:group}GET Data": "獲取透傳的數據",
   "{id:group}Car control": "小車指令",
   "{id:group}Servo":"舵機",
+  "{id:group}AI MODE":"AI模式",
   
   "WIFI_Camera.initialization|block":"串口初始化|發送引脚 %TX|接收引脚 %RX|波特率 %buadrate",
   "WIFI_Camera.setRXbuffSize|block":"設置串口接收緩衝區的大小|大小長度 %size",
@@ -53,7 +54,31 @@
 
   "WIFI_Camera.Sever_Data.sevro_vflip|block":"舵機垂直方向",
   "WIFI_Camera.Sever_Data.sevro_mirror|block":"舵機水平方向",
-  "WIFI_Camera.Sever_Data.sevro_NONE|block":"无舵機方向"
+  "WIFI_Camera.Sever_Data.sevro_NONE|block":"无舵機方向",
+
+  "WIFI_Camera.setAIMode|block":"設置AI模式 %mode",
+  "WIFI_Camera.SendKEY|block":"虛擬按鍵 %mode",
+  "WIFI_Camera.SET_CX|block":"設置识别框X方向的中心点位置 %value",
+  "WIFI_Camera.SET_CY|block":"設置识别框Y方向的中心点位置 %value",
+  "WIFI_Camera.SET_Area|block":"設置识别框面积的大小 %value",
+  "WIFI_Camera.GET_CX|block":"獲取識別框X方向的中心點位置",
+  "WIFI_Camera.GET_CY|block":"獲取識別框Y方向的中心點位置",
+  "WIFI_Camera.GET_Area|block":"獲取識別框面積的大小",
+  "WIFI_Camera.Detection_Data|block":"檢測和識別數據解析 %strData",
+  "WIFI_Camera.Face_Data|block":"人脸識別數據解析 %strData",
+  "WIFI_Camera.QR_Data|block":"二維碼數據解析 %strData",
+
+  "WIFI_Camera.AIMODE_selcet.Nornal|block":"正常模式",
+  "WIFI_Camera.AIMODE_selcet.Cat_Dog_MODE|block":"貓狗檢測",
+  "WIFI_Camera.AIMODE_selcet.Face_MODE|block":"人脸檢測",
+  "WIFI_Camera.AIMODE_selcet.Color_MODE|block":"顔色識別",
+  "WIFI_Camera.AIMODE_selcet.Study_Face_MODE|block":"人脸識別",
+  "WIFI_Camera.AIMODE_selcet.QR_MODE|block":"二維碼識別",
+
+  "WIFI_Camera.KEY_Model.KEY_MENU|block":"KEY_MENU",
+  "WIFI_Camera.KEY_Model.KEY_PLAY|block":"KEY_PLAY",
+  "WIFI_Camera.KEY_Model.KEY_UPUP|block":"KEY_UPUP",
+  "WIFI_Camera.KEY_Model.KEY_DOWN|block":"KEY_DOWN"
 }
 
 

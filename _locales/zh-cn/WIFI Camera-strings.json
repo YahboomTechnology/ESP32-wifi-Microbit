@@ -12,6 +12,7 @@
   "{id:group}GET Data": "获取透传的数据",
   "{id:group}Car control": "小车指令",
   "{id:group}Servo":"舵机",
+  "{id:group}AI MODE":"AI模式",
   
   "WIFI_Camera.initialization|block":"串口初始化|发送引脚 %TX|接收引脚 %RX|波特率 %buadrate",
   "WIFI_Camera.setRXbuffSize|block":"设置串口接收缓冲器的大小|大小长度 %size",
@@ -53,8 +54,32 @@
 
   "WIFI_Camera.Sever_Data.sevro_vflip|block":"舵机垂直方向",
   "WIFI_Camera.Sever_Data.sevro_mirror|block":"舵机水平方向",
-  "WIFI_Camera.Sever_Data.sevro_NONE|block":"无舵机方向"
+  "WIFI_Camera.Sever_Data.sevro_NONE|block":"无舵机方向",
 
+  
+  "WIFI_Camera.setAIMode|block":"设置AI模式 %mode",
+  "WIFI_Camera.SendKEY|block":"虚拟按键 %mode",
+  "WIFI_Camera.SET_CX|block":"设置识别框X方向的中心点位置 %value",
+  "WIFI_Camera.SET_CY|block":"设置识别框Y方向的中心点位置 %value",
+  "WIFI_Camera.SET_Area|block":"设置识别框面积的大小 %value",
+  "WIFI_Camera.GET_CX|block":"获取识别框X方向的中心点位置",
+  "WIFI_Camera.GET_CY|block":"获取识别框Y方向的中心点位置",
+  "WIFI_Camera.GET_Area|block":"获取识别框面积的大小",
+  "WIFI_Camera.Detection_Data|block":"检测和识别数据解析 %strData",
+  "WIFI_Camera.Face_Data|block":"人脸识别数据解析 %strData",
+  "WIFI_Camera.QR_Data|block":"二维码数据解析 %strData",
+
+  "WIFI_Camera.AIMODE_selcet.Nornal|block":"正常模式",
+  "WIFI_Camera.AIMODE_selcet.Cat_Dog_MODE|block":"猫狗检测",
+  "WIFI_Camera.AIMODE_selcet.Face_MODE|block":"人脸检测",
+  "WIFI_Camera.AIMODE_selcet.Color_MODE|block":"颜色识别",
+  "WIFI_Camera.AIMODE_selcet.Study_Face_MODE|block":"人脸识别",
+  "WIFI_Camera.AIMODE_selcet.QR_MODE|block":"二维码识别",
+
+  "WIFI_Camera.KEY_Model.KEY_MENU|block":"KEY_MENU",
+  "WIFI_Camera.KEY_Model.KEY_PLAY|block":"KEY_PLAY",
+  "WIFI_Camera.KEY_Model.KEY_UPUP|block":"KEY_UPUP",
+  "WIFI_Camera.KEY_Model.KEY_DOWN|block":"KEY_DOWN"
 }
 
 
