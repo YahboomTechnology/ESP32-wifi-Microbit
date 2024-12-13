@@ -78,7 +78,42 @@
   "WIFI_Camera.KEY_Model.KEY_MENU|block":"KEY_MENU",
   "WIFI_Camera.KEY_Model.KEY_PLAY|block":"KEY_PLAY",
   "WIFI_Camera.KEY_Model.KEY_UPUP|block":"KEY_UPUP",
-  "WIFI_Camera.KEY_Model.KEY_DOWN|block":"KEY_DOWN"
+  "WIFI_Camera.KEY_Model.KEY_DOWN|block":"KEY_DOWN",
+
+
+  "CameraLite_IIC|block":"IIC接口控制",
+  "{id:category}CameraLite_IIC":"IIC接口控制",
+  "{id:group}IIC Write": "IIC寫入",
+  "{id:group}IIC Read": "IIC讀取",
+
+  "CameraLite_IIC.IIC_bool.Flase|block":"Flase",
+  "CameraLite_IIC.IIC_bool.True|block":"True",
+
+  "CameraLite_IIC.IIC_KEY_Model.KEY_MENU|block":"KEY_MENU",
+  "CameraLite_IIC.IIC_KEY_Model.KEY_PLAY|block":"KEY_PLAY",
+  "CameraLite_IIC.IIC_KEY_Model.KEY_UPUP|block":"KEY_UPUP",
+  "CameraLite_IIC.IIC_KEY_Model.KEY_DOWN|block":"KEY_DOWN",
+
+  "CameraLite_IIC.IIC_AI_selcet.Nornal|block":"正常模式",
+  "CameraLite_IIC.IIC_AI_selcet.Cat_Dog_MODE|block":"貓狗檢測",
+  "CameraLite_IIC.IIC_AI_selcet.Face_MODE|block":"人脸檢測",
+  "CameraLite_IIC.IIC_AI_selcet.Color_MODE|block":"顔色識別",
+  "CameraLite_IIC.IIC_AI_selcet.Study_Face_MODE|block":"人脸識別",
+  "CameraLite_IIC.IIC_AI_selcet.QR_MODE|block":"二維碼識別",
+
+  
+
+
+  "CameraLite_IIC.SET_Level_Mode|block":"設置攝像頭是否水平反轉 %Mode",
+  "CameraLite_IIC.SET_vertical_Mode|block":"設置攝像頭是否垂直反轉 %Mode",
+  "CameraLite_IIC.IIC_SET_AI_Mode|block":"IIC設置AI模式 %AIMode",
+  "CameraLite_IIC.IIC_SET_KEY|block":"IIC發送虛擬按鍵 %KEYData",
+
+  "CameraLite_IIC.IICGet_Camera_Data|block":"獲取攝像頭數據|延遲時間 %delay_time",
+  "CameraLite_IIC.IICGET_CX|block":"IIC獲取識別框中心的X軸數據",
+  "CameraLite_IIC.IICGET_CY|block":"IIC獲取識別框中心的Y軸數據",
+  "CameraLite_IIC.IICGET_ID|block":"IIC獲取人臉識別的ID"
+
 }
 
 

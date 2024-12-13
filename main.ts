@@ -650,3 +650,224 @@ namespace WIFI_Camera {
     }
 
 }
+
+
+//IIC
+//% blockId=CameraLite_IIC block="IIC_Control"
+//%color="#228B22" weight=25 icon="\uf0c2"
+namespace CameraLite_IIC {
+    //I2C addr
+    const ESP32_Camera_ADDR = 0x33
+    //reg
+    const level_reg =0x01 //摄像头水平寄存器 Camera horizontal register
+	const vertical_reg = 0x02//摄像头垂直寄存器 Camera vertical register
+	const Model_reg = 0x03 //模式选择寄存器 Mode selection register
+	
+	const Virtual_key_reg = 0x08 //虚拟按键寄存器 Virtual key register
+
+    const Middle_X_Hreg = 0x28
+	const Middle_X_Lreg = 0x29
+	const Middle_Y_Hreg = 0x2A
+	const Middle_Y_Lreg = 0x2B
+	const Face_ID_Hreg = 0x2C
+	const Face_ID_Lreg = 0x2D
+
+    
+    export enum IIC_bool
+    {
+        //% blockId="Flase" block="Flase"
+        Flase = 0,
+        //% blockId="True" block="True"
+        True = 1,
+    }
+
+    export enum IIC_KEY_Model
+    {
+        //% blockId="KEY_MENU" block="KEY_MENU"
+        KEY_MENU = 1,
+        //% blockId="KEY_PLAY" block="KEY_PLAY"
+        KEY_PLAY,
+        //% blockId="KEY_UPUP" block="KEY_UPUP"
+        KEY_UPUP,
+        //% blockId="KEY_DOWN" block="KEY_DOWN"
+        KEY_DOWN,
+    }
+
+    export enum IIC_AI_selcet
+    {
+        //% blockId="Nornal" block="Nornal"
+        Nornal = 0,
+        //% blockId="Cat_Dog_MODE" block="Cat_Dog_MODE"
+        Cat_Dog_MODE,
+        //% blockId="Face_MODE" block="Face_MODE"
+        Face_MODE,
+        //% blockId="Color_MODE" block="Color_MODE"
+        Color_MODE,
+        //% blockId="Study_Face_MODE" block="Study_Face_MODE"
+        Study_Face_MODE,
+        //% blockId="QR_MODE" block="QR_MODE"
+        QR_MODE, 
+    }
+
+
+    //设置画面的水平方向
+    //% blockId=SET_Level_Mode block="SET_Level_Mode|Switch %Mode"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Write"
+    export function SET_Level_Mode(Mode:IIC_bool):void{
+        let buf = pins.createBuffer(2);
+        buf[0] = level_reg;
+        buf[1] = Mode;
+        for(let i = 0;i<5;i++)//发送5次，以确保配置成功
+        {
+            pins.i2cWriteBuffer(ESP32_Camera_ADDR, buf);
+            basic.pause(100);
+        }
+        
+    }
+
+    //设置画面的垂直方向
+    //% blockId=SET_vertical_Mode block="SET_vertical_Mode|Switch %Mode"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Write"
+    export function SET_vertical_Mode(Mode:IIC_bool):void{
+        let buf = pins.createBuffer(2);
+        buf[0] = Model_reg;
+        buf[1] = Mode;
+        for(let i = 0;i<5;i++)//发送5次，以确保配置成功
+        {
+            pins.i2cWriteBuffer(ESP32_Camera_ADDR, buf);
+            basic.pause(100);
+        }
+        
+    }
+
+    //设置AI模式选择
+    //% blockId=IIC_SET_AI_Mode block="IIC_SET_AI_Mode|AIMode %AIMode"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Write"
+    export function IIC_SET_AI_Mode(AIMode:IIC_AI_selcet):void{
+        let buf = pins.createBuffer(2);
+        buf[0] = vertical_reg;
+        buf[1] = AIMode;
+        pins.i2cWriteBuffer(ESP32_Camera_ADDR, buf);
+        basic.pause(100);
+    }
+
+
+    //设置虚拟按键
+    //% blockId=IIC_SET_KEY block="IIC_SET_KEY|KEY %KEYData"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Write"
+    export function IIC_SET_KEY(KEYData:IIC_KEY_Model):void{
+        let buf = pins.createBuffer(2);
+        buf[0] = Virtual_key_reg;
+        buf[1] = KEYData;
+        pins.i2cWriteBuffer(ESP32_Camera_ADDR, buf);
+        basic.pause(100); 
+    }
+
+
+    let XH = 0,XL= 0,YH= 0,YL= 0,IDH= 0,IDL= 0
+    let center_X = 160
+    let center_Y = 120
+    let id = 0
+
+
+    
+
+    //获取中心点X轴方向
+    //% blockId=IICGET_CX block="IICGET_CX"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Read"
+    export function IICGET_CX():number
+    {
+        return center_X
+    }
+
+    //获取中心点Y轴方向
+    //% blockId=IICGET_CY block="IICGET_CY"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Read"
+    export function IICGET_CY():number
+    {
+        return center_Y
+    }
+
+    //获取id
+    //% blockId=IICGET_ID block="IICGET_ID"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Read"
+    export function IICGET_ID():number
+    {
+        return id
+    }
+
+    
+    //IIC获取数据
+    //% blockId=IICGet_Camera_Data block="IICGet_Camera_Data| %delay_time"
+    //% weight=88
+    //% blockGap=10
+    //% group="IIC Read"
+    export function IICGet_Camera_Data(delay_time:number):void
+    {       
+        for(let i = 0;i<2;i++)//每个寄存器读2次
+        {
+            pins.i2cWriteNumber(ESP32_Camera_ADDR,Middle_X_Hreg,NumberFormat.UInt8LE,true);//读取X高位寄存器
+            XH = pins.i2cReadNumber(ESP32_Camera_ADDR, NumberFormat.UInt8LE, false);
+            basic.pause(delay_time);
+        }
+
+        for(let i = 0;i<2;i++)//每个寄存器读2次
+        {
+            pins.i2cWriteNumber(ESP32_Camera_ADDR,Middle_X_Lreg,NumberFormat.UInt8LE,true);//读取X低位寄存器
+            XL = pins.i2cReadNumber(ESP32_Camera_ADDR, NumberFormat.UInt8LE, false);
+            basic.pause(delay_time);
+        }
+
+        for(let i = 0;i<2;i++)//每个寄存器读2次
+        {
+            pins.i2cWriteNumber(ESP32_Camera_ADDR,Middle_Y_Hreg,NumberFormat.UInt8LE,true);//读取Y高位寄存器
+            YH = pins.i2cReadNumber(ESP32_Camera_ADDR, NumberFormat.UInt8LE, false);
+            basic.pause(delay_time);
+        }
+
+        for(let i = 0;i<2;i++)//每个寄存器读2次
+        {
+            pins.i2cWriteNumber(ESP32_Camera_ADDR,Middle_Y_Lreg,NumberFormat.UInt8LE,true);//读取Y低位寄存器
+            YL = pins.i2cReadNumber(ESP32_Camera_ADDR, NumberFormat.UInt8LE, false);
+            basic.pause(delay_time);
+        }
+
+        for(let i = 0;i<2;i++)//每个寄存器读2次
+        {
+            pins.i2cWriteNumber(ESP32_Camera_ADDR,Face_ID_Hreg,NumberFormat.Int8LE,true);//读取id高位寄存器
+            IDH = pins.i2cReadNumber(ESP32_Camera_ADDR, NumberFormat.Int8LE, false);
+            basic.pause(delay_time);
+        }
+
+        for(let i = 0;i<2;i++)//每个寄存器读2次
+        {
+            pins.i2cWriteNumber(ESP32_Camera_ADDR,Face_ID_Lreg,NumberFormat.Int8LE,true);//读取id低位寄存器
+            IDL = pins.i2cReadNumber(ESP32_Camera_ADDR, NumberFormat.Int8LE, false);
+            basic.pause(delay_time);
+        }
+
+        //数据整合
+        center_X = (XH<<8)|XL;
+        center_Y = (XH<<8)|XL;
+        id = (IDH<<8)|IDL;
+        
+    }
+
+
+
+
+}
