@@ -734,7 +734,7 @@ namespace CameraLite_IIC {
     //% group="IIC Write"
     export function SET_vertical_Mode(Mode:IIC_bool):void{
         let buf = pins.createBuffer(2);
-        buf[0] = Model_reg;
+        buf[0] = vertical_reg;
         buf[1] = Mode;
         for(let i = 0;i<5;i++)//发送5次，以确保配置成功
         {
@@ -751,7 +751,7 @@ namespace CameraLite_IIC {
     //% group="IIC Write"
     export function IIC_SET_AI_Mode(AIMode:IIC_AI_selcet):void{
         let buf = pins.createBuffer(2);
-        buf[0] = vertical_reg;
+        buf[0] = Model_reg;
         buf[1] = AIMode;
         pins.i2cWriteBuffer(ESP32_Camera_ADDR, buf);
         basic.pause(100);
